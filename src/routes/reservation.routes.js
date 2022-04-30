@@ -1,10 +1,17 @@
-const controllers = require('../controllers/reservation.controllers');
 const express = require('express');
-const Router  = require('express');
+const { 
+    getAllReservation,
+    getReservation,
+    createReservation,
+    updateReservation,
+    deleteReservation
+} = require('../controllers/reservation.controllers');
+const canAccess = require('../middleware/auth.middleware');
 
 const reservationRoutes = express.Router();
-reservationRoutes.get('/', controllers.getAllReservation).post('/', controllers.createReservation);
-reservationRoutes.get('/:reservation_id', controllers.getReservation);
-reservationRoutes.put('/:reservation_id', controllers.updateReservation);
-reservationRoutes.delete('/:reservation_id', controllers.deleteReservation);
+
+reservationRoutes.get('/', canAccess, getAllReservation).post('/', canAccess, createReservation);
+reservationRoutes.get('/:reservationId', canAccess, getReservation);
+reservationRoutes.put('/:reservationId', canAccess ,updateReservation);
+reservationRoutes.delete('/:reservationId', canAccess, deleteReservation);
 module.exports = reservationRoutes;

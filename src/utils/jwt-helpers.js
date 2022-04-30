@@ -6,23 +6,26 @@ const jwtconfig={
     refresh:'reallysecretrefreshsecret',
 };
 const refreshTokens=[];
-const generateToken=(id, expiresIn)=>
-jwt.sign({id}, jwtconfig.access, expiresIn);
+const generateAccessToken = (id, expiresIn) =>
+  jwt.sign({ id }, jwtconfig.access, expiresIn);
 
-const generateRefreshToken =(id, expiresIn) =>
-jwt.sign({id}, jwtconfig.refresh, expiresIn);
+// create a new re-auth token
+const generateRefreshToken = (id, expiresIn) =>
+  jwt.sign({ id }, jwtconfig.refresh, expiresIn);
 
-const verifyToken=(token, secret, req, res) =>{
-    try{
-        return jwt.verify(token, secret);
-    } catch{
-        res.status(500).send({ auth: false, message: 'Invalid token'});
-    }
+// check token validity
+const verifyToken = (token, secret, req, res) => {
+  try {
+    return jwt.verify(token, secret);
+  } catch {
+    res.status(500).json({ auth: false, msg: 'Invalid token.' });
+  }
 };
-module.exports={
-    jwtconfig,
-    refreshTokens,
-    generateToken,
-    generateRefreshToken,
-    verifyToken
+
+module.exports = {
+  jwtconfig,
+  refreshTokens,
+  generateAccessToken,
+  generateRefreshToken,
+  verifyToken,
 };

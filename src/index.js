@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const reservationRoutes = require('./routes/reservation.routes');
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
+const bikeRoutes = require('./routes/bike.routes');
 const {error404,error500} = require('../src/middleware/errors.middleware');
 
 const app = express();
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use('/api/bike', bikeRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/reservation', reservationRoutes);
@@ -28,7 +30,6 @@ app.use(error500);
 
 app.listen(port, () => {
      console.log(`Running on port: ${port} ...`);
-
 });
 
 
