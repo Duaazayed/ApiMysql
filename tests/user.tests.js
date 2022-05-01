@@ -3,14 +3,14 @@ const expect = chai.expect;
 const chaiHttp= require('chai-http');
 
 chai.use(chaiHttp);
-const token='';
+const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjUxMzQ4MDAyLCJleHAiOjE2NTE0MzQ0MDJ9.lPJDwaafxecHuqYWrZvCfbkHaBVbOFUnpDpdlY7ZInk';
 
 describe('User API Service', ()=>{
     it("should GET a logged in user's unique id, username, and password", (done)=>{
         const expected=[{
-            user_id: 1,
-            username: 'duaa',
-            email: 'duaa@example.com'
+            user_id: 8,
+            username: 'evan',
+            email: 'evan@test.com'
         },
     ];
         
@@ -26,9 +26,9 @@ describe('User API Service', ()=>{
     });
     it.skip('should PUT update credentials for a logged in user', (done)=>{
         const updatedUser={
-            username: 'duaa',
+            username: 'evan',
             password:'newPassword',
-            email:' duaa@example.com',
+            email:' evan@test.com',
         };
         const expected={msg: 'Updated succesfully'};
 
@@ -44,9 +44,9 @@ describe('User API Service', ()=>{
 });
 it('should PUT updated credentials for a logged in user', (done)=>{
     const updatedUser={
-        username: 'duaa',
+        username: 'evan',
         password:'newPassword',
-        email:' duaa@example.com',
+        email:' evan@test.com',
     };
     const expected={msg: 'Nothing to update '};
      chai

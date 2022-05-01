@@ -9,9 +9,8 @@ describe('Reservations API Service', function(){
         .request('http://localhost:5000')
         .get('/api/reservation')
         .end(function(err,resp){
-            expect(resp.username).to.be.eql('duaa');
-            expect(resp.bike_id).to.be.eql(1);
-            expect(resp.reservation_date).to.be.eql(200);
+            expect(resp.reservation_id).to.be.eql(8);
+            expect(resp.reservation_date).to.be.eql('14:37:00');
             expect(resp.body).to.be.a('array');
             expect(resp.body.length).to.not.be.eql(0);
             done();
@@ -20,11 +19,11 @@ describe('Reservations API Service', function(){
     it('should GET a single reservation', function(done){
         const expected=[
             {
-            id: 1,
-            username: 'duaa',
-            reservation_date: '2022-04-04T04:09:49.000z',
-            reservation_start_time: '',
-            reservation_end_time:'',
+            reservation_id: 8,
+            
+            reservation_date: '2022-04-30',
+            reservation_start_time: '14:37:00',
+            reservation_end_time:'15:37:00',
         },
     ];
     chai 
@@ -51,9 +50,9 @@ it('should POST a single reservation', function(done){
     .post('/api/reservation')
     .send(newReservation)
     .end(function (err, resp){
-        expect(resp.username).to.be.eql('duaa');
-        expect(resp.bike_id).to.be.eql(1);
-        expect(resp.reservation_date).to.be.eql(200);
+        
+        expect(resp.reservation_id).to.be.eql(1);
+        expect(resp.reservation_date).to.be.eql('2022-04:30');
         expect(resp.body).to.be.a('array');
         expect(resp.body.length).to.not.be.eql(0);
         expect(resp.body).to.be.eql(expected);
