@@ -3,7 +3,7 @@ const queries = require('../queries/bike.queries');
 const query =require('../utils/query');
 //I am trying to do like as in the video example is that right? or needs any update?
 
-exports.getAllBikes =  async(req, res)=>{
+exports.getAllBikes =  async(_req, res)=>{
     const con = await connection().catch( err => {throw err});
     con.query(queries.ALL_BIKES, function(err, result, fields){
         if(err){

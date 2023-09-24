@@ -46,6 +46,7 @@ exports.login = async (req, res) => {
     const { username } = escape(req.body);
     const { password } = req.body;
     const con = await connection().catch((err) => {
+        console.log(err);
         throw err;
     });
     const user = await query(con, GET_ME_BY_USERNAME_WITH_PASSWORD(username)).catch((err) => {

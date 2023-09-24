@@ -10,15 +10,15 @@ const password = process.env.DB_PASS || 'test_password';
 const database = process.env.DB_DATABASE || 'gbsh'; //this reverse to Golden Bike SHop database
 
 const connection = async () =>
-new Promise(async(resolve, reject)=>{
-    const con = mysql.createConnection({
+new Promise(function (resolve, reject) {
+  const con = mysql.createConnection({
     host,
     user,
     password,
     database,
-});
-con.connect((err) => {
-  console.log('succusfully conneted');
+  });
+  con.connect((err) => {
+    console.log('succusfully connected');
     if (err) {
       console.log(err);
       reject(err);
@@ -27,24 +27,22 @@ con.connect((err) => {
   });
 
 
-resolve(con);
-  });
-
-  (async () => {
+  resolve(con);
+});
+(async () => {
     const _con = await connection().catch((err) => {
       throw err;
     });
-
-const reservationTableCreated= await query (_con, CREATE_RESERVATION_TABLE).catch(
-    (err)=>{
-        console.log(err);
-    }
-);
 
 const userTableCreated= await query (_con, CREATE_USERS_TABLE).catch(
     (err)=>{
         console.log(err);
     }
+);
+const reservationTableCreated= await query (_con, CREATE_RESERVATION_TABLE).catch(
+  (err)=>{
+      console.log(err);
+  }
 );
 const bikeTableCreated= await query (_con, CREATE_BIKE_TABLE).catch(
     (err)=>{
