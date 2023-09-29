@@ -10,7 +10,7 @@ const bikeRoutes = require('./routes/bike.routes');
 const {error404,error500} = require('../src/middleware/errors.middleware');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3306;
 const logLevel = process.env.LOG_LEVEL || 'dev';
 const env = process.env.NODE_ENV;
 if(env !=='test'){

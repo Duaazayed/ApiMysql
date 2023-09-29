@@ -10,7 +10,7 @@ const password = process.env.DB_PASS || 'test_password';
 const database = process.env.DB_DATABASE || 'gbsh'; //this reverse to Golden Bike SHop database
 
 const connection = async () =>
-new Promise(function (resolve, reject) {
+new Promise((resolve, reject) =>{
   const con = mysql.createConnection({
     host,
     user,
@@ -29,6 +29,7 @@ new Promise(function (resolve, reject) {
 
   resolve(con);
 });
+
 (async () => {
     const _con = await connection().catch((err) => {
       throw err;
