@@ -7,7 +7,6 @@ const{
     deleteBike
 } = require('../controllers/bike.controller');
 
-
 const bikeRoutes = express.Router();
 bikeRoutes.get('/', getAllBikes).post('/', createBike);
 bikeRoutes.get('/:bikeId', getBike);

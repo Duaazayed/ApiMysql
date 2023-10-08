@@ -11,8 +11,8 @@ exports.CREATE_RESERVATION_TABLE = `CREATE TABLE IF NOT EXISTS reservation(
     ON UPDATE CASCADE
     ON DELETE CASCADE
     )`;
+    
     exports.ALL_RESERVATION = (userId)=>`SELECT * FROM reservation WHERE user_id= ${userId}`;
-
     exports.SINGLE_RESERVATION= (userId, reservationId)=>`SELECT * FROM reservation WHERE reservation_id =${reservationId} AND user_id= ${userId}`;
     exports.INSERT_RESERVATION= (userId, bikeId, reservationDate, reservationStartTime, reservationEndTime) => `INSERT INTO reservation (user_id, bike_id, reservation_date, reservation_start_time, reservation_end_time) VALUES(${userId}, ${bikeId}, ${reservationDate}, ${reservationStartTime}, ${reservationEndTime})`;
     exports.UPDATE_RESERVATION= (userId, reservationId, newValues) =>`UPDATE reservation SET ${newValues} WHERE user_id= ${userId}  AND reservation_id = ${reservationId}`;

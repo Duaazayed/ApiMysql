@@ -25,7 +25,6 @@ exports.getAllReservation = async (req, res) => {
     res.json(reservation);
 };
 
-
 exports.getReservation = async (req, res) => {
     const con = await connection().catch((err) => {
         throw err;

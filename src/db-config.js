@@ -26,7 +26,6 @@ new Promise((resolve, reject) =>{
     }
   });
 
-
   resolve(con);
 });
 

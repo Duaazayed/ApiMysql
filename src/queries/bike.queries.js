@@ -1,4 +1,3 @@
-    //thats what I am thinking about bike schema, do you think need any additional attributes?
     exports.CREATE_BIKE_TABLE = `CREATE TABLE bikeinfo (
     bike_id int(11) NOT NULL AUTO_INCREMENT,
     bike_name varchar(30) NOT NULL,
@@ -12,6 +11,3 @@
     exports.INSERT_BIKE= `INSERT INTO bikeinfo (bike_name) VALUES(?)`;
     exports.UPDATE_BIKE= `UPDATE bikeinfo SET bike_name = ?, description = ?, rent_price = ?  WHERE bike_id= ?`;
     exports.DELETE_BIKE= `DELETE FROM bikeinfo WHERE bike_id= ?`;
-
-    
-    

@@ -6,7 +6,6 @@ const {GET_ME_BY_USER_ID,
     UPDATE_USER } = require('../queries/user.queries');
 const escape = require('../utils/escape');
 
-
 exports.getMe= async(req, res) =>{
     const user = req.user;
     if( user.id){

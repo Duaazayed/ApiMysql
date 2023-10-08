@@ -13,7 +13,6 @@ const escape = require('../utils/escape');
 
 exports.register = async (req, res) => {
     console.log(req.body.password);
-    //const salt= bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, 10);
     const { username, email, password } = escape({
       ...req.body,

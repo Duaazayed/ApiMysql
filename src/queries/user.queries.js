@@ -6,7 +6,6 @@ exports.CREATE_USERS_TABLE = `CREATE TABLE IF NOT EXISTS users(
     PRIMARY KEY (user_id);
     )`;
 
-
 exports.GET_ME_BY_USER_ID = (userId) =>
     `SELECT user_id, username, email FROM users WHERE user_id = ${userId}`; // don't return the password
   

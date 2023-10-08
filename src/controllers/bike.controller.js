@@ -11,7 +11,6 @@ exports.getAllBikes =  async(_req, res)=>{
         }
         res.json(result);
     });
-    
 };
 
 exports.getBike = async(req, res)=>{

@@ -1,6 +1,5 @@
 const {jwtconfig, verifyToken} = require('../utils/jwt-helpers')
-//const jwt= require('jsonwebtoken');
-//const jwtconfig = require('../utils/jwt-helpers');
+
 module.exports= (req, res, next)=>{
     const authHeader = req.headers['auth-token'] || req.headers['authorization'];
     if(!authHeader){
